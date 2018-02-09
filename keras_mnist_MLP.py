@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 (x_train_image, y_train_label), (x_test_image, y_test_label) = mnist.load_data() # 資料會存放於 C:\Users\user\.keras\datasets 目錄中
 
 # 將 28 x 28 的二維資料reshape成一維的向量
-x_Train = x_train_image.reshape(60000, 784).astype('float32')
-x_Test = x_test_image.reshape(10000, 784).astype('float32')
+x_Train = x_train_image.reshape(60000, 784).astype('float32') # 有60000筆training image，每筆圖形有784個像素
+x_Test = x_test_image.reshape(10000, 784).astype('float32') # 有10000筆testing image，每筆圖形有784個像素
 
 # 將一維的向量normalize
 x_Train_normalize = x_Train / 255
@@ -102,7 +102,7 @@ print(('-----------------------using test image to evaluate the model-----------
 print('accuracy={0}'.format(score[1]))
 
 # 再來使用此已訓練好的模型進行預測
-prediction = model.predict_classes(x_Test_normalize) # prediction存放每個test image的預測結果
+prediction = model.predict_classes(x_Test_normalize) # prediction為ndarray，其shape為(10000, )，所以是一個一維陣列，每個元素存放每個test image的預測結果
 
 # 輸入參數images為多個二維陣列的圖形、labels為每個圖形對應的label (為一數字)、prediction為該圖形的預測值、idx為指定索引、num為共要印出幾個圖形
 def plot_image_labels_prediction(images, labels, prediction, idx, num=10):

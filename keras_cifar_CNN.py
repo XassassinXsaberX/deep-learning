@@ -128,7 +128,7 @@ train_history = model.fit(x=x_train_image_normalize, y=y_TrainOneHot, validation
 # validation_split=0.2 代表keras再訓練前會將x_train_image_normalize的 80%資料當成訓練資料、20%資料當成驗證資料(validation data)
 # 所以有50000 * 0.8 = 40000筆資料當成訓練資料、50000 * 0.2 = 10000筆資料當成驗證資料
 # epochs=10 代表訓練週期總數為10次epoch
-# batch_size=128代表每次訓練會有200筆資料，所以一個epoch會訓練 48000 / 128 = 375 次
+# batch_size=128代表每次訓練會有200筆資料，所以一個epoch會訓練 40000 / 128 = 375 次
 # verbose=2 代表會顯示訓練過程
 
 # 從train_history變數中畫出訓練過程
@@ -159,7 +159,7 @@ print()
 print(('-----------------------using test image to evaluate the model-----------------------'))
 print('accuracy={0}'.format(score[1]))
 
-prediction = model.predict_classes(x_test_image_normalize) # prediction存放每個test image的預測結果( input參數一定要normalize才行 )
+prediction = model.predict_classes(x_test_image_normalize) # prediction為ndarray，其shape為(10000, )，所以是一個一維陣列，每個元素存放每個test image的預測結果 ( input參數一定要normalize才行 )
 plot_image_labels_prediction(x_test_image, y_test_label, prediction, idx=0, num=10) # 顯示idx=0後的10張圖，分別標示該圖的label及透過模形的預測結果
 Predicted_Prob = model.predict(x_test_image_normalize) # Predicted_Prob存放每個test image預測成每個類別的各種機率( input參數一定要normalize才行 )
 show_predicted_prob(x_test_image, y_test_label, prediction, Predicted_Prob, idx=3) # 顯示idx=0的圖，並標示該圖的label及透過模形的預測結果，及預測成其他類別所對應到的機率
