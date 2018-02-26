@@ -32,3 +32,7 @@ with tf.Session() as sess:  # 開啟"Session"，sess就是session物件
     print('W = ', sess.run(W))  # 使用sess.run顯示tensorflow變數
     print('W.shape =', W.shape)  # 印出(3, 2)
     print('SUM =', sess.run(SUM))  # 使用sess.run顯示tensorflow變數
+
+    # 接下來，下列程式碼將要顯示在TensorBoard的資料，寫入到log檔
+    tf.summary.merge_all()  # 將所有要顯示在TensorBoard的資料整合
+    train_writer = tf.summary.FileWriter("./log/area", sess.graph)

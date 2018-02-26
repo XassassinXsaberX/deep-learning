@@ -31,12 +31,12 @@ def plot_image_labels_prediction(images, labels, prediction, idx, num=10):
 # 載入mnist資料集。一開始會檢查使用者目錄下是否有mnist資料集(若沒有則會發一些時間來下載)
 (x_train_image, y_train_label), (x_test_image, y_test_label) = mnist.load_data() # 資料會存放於 C:\Users\user\.keras\datasets 目錄中
 
-print("train data=",len(x_train_image)) # 其中有60000筆 train image
-print("train data : ",x_train_image.shape) # 每筆 train image由 28 x 28 的矩陣所組成。其中每個元素的值域為0 ~ 255
+print("train data=", len(x_train_image)) # 其中有60000筆 train image
+print("train data : ", x_train_image.shape) # 每筆 train image由 28 x 28 的矩陣所組成。其中每個元素的值域為0 ~ 255
 print("train label : ", y_train_label.shape) # 每筆 train label為一個圖形對應到的數字
 
-print(" test data=",len(x_test_image)) # 有10000筆 test image
-print(" test data : ",x_test_image.shape) # 每筆 test image由 28 x 28 的矩陣所組成。其中每個元素的值域為0 ~ 255
+print(" test data=", len(x_test_image)) # 有10000筆 test image
+print(" test data : ", x_test_image.shape) # 每筆 test image由 28 x 28 的矩陣所組成。其中每個元素的值域為0 ~ 255
 print(" test label : ", y_test_label.shape) # 每筆 test label為一個圖形對應到的數字
 print("===========================")
 
